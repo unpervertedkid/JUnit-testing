@@ -42,7 +42,7 @@ class BankAccountTest {
     }
 
     @Test
-    @DisplayName("An account should default to active state afer creation")
+    @DisplayName("An account should default to active state after creation")
     void accountActiveAfterCreation(){
         BankAccount account = new BankAccount(7888,899);
 
