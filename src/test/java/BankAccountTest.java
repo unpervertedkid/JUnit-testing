@@ -29,4 +29,25 @@ class BankAccountTest {
 
         assertThrows(RuntimeException.class, () -> account.withdraw(1000));
     }
+
+    @Test
+    @DisplayName("Withdrawal for accounts with minimum balance of below zero should allow withdrawals past zero")
+    void withdrawalPastZeroTest(){
+        BankAccount account = new BankAccount(-3000, 500);
+
+        account.withdraw(2000);
+
+        assertNotEquals(0, account.getBalance());
+        assertEquals(-1500,account.getBalance());
+    }
+
+    @Test
+    @DisplayName("An account should default to active state afer creation")
+    void accountActiveAfterCreation(){
+        BankAccount account = new BankAccount(7888,899);
+
+        assertTrue(account.isActive());
+    }
+
+
 }

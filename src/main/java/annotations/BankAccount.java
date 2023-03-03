@@ -3,6 +3,7 @@ package annotations;
 public class BankAccount {
     private double minimumBalance;
     private double balance;
+    private boolean isActive = true;
 
     public BankAccount(double minimumBalance, double balance){
         this.minimumBalance = minimumBalance;
@@ -23,6 +24,14 @@ public class BankAccount {
 
     public void setBalance(double balance) {
         this.balance = balance;
+    }
+
+    public boolean isActive() {
+        return isActive;
+    }
+
+    public void setActive(boolean active) {
+        this.isActive = active;
     }
 
     public void deposit(double amount) {
