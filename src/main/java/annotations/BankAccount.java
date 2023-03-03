@@ -34,10 +34,10 @@ public class BankAccount {
     }
 
     public void withdraw(double amount) {
-        if (amount <= balance) {
+        if (balance - amount >= minimumBalance) {
             balance -= amount;
         } else {
-            throw new RuntimeException("Cannot withdraw more than available balance");
+            throw new RuntimeException("Cannot withdraw below the minimum balance");
         }
     }
 }
