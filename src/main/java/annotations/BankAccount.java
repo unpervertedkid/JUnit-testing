@@ -3,7 +3,7 @@ package annotations;
 public class BankAccount {
     private double minimumBalance;
     private double balance;
-    private boolean isActive = true;
+    private State state = State.ACTIVE;
 
     public BankAccount(double minimumBalance, double balance){
         this.minimumBalance = minimumBalance;
@@ -27,11 +27,16 @@ public class BankAccount {
     }
 
     public boolean isActive() {
-        return isActive;
+        return state == State.ACTIVE;
     }
 
-    public void setActive(boolean active) {
-        this.isActive = active;
+    public State getState() {
+        return state;
+    }
+
+    public void setState(State state) {
+        this.state = state;
+
     }
 
     public void deposit(double amount) {
