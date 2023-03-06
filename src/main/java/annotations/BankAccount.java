@@ -4,6 +4,15 @@ public class BankAccount {
     private double minimumBalance;
     private double balance;
     private State state = State.ACTIVE;
+    private String holderName;
+
+    public String getHolderName() {
+        return holderName;
+    }
+
+    public void setHolderName(String holderName) {
+        this.holderName = holderName;
+    }
 
     public BankAccount(double minimumBalance, double balance){
         this.minimumBalance = minimumBalance;
