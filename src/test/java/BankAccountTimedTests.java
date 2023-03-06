@@ -3,12 +3,12 @@ import org.junit.jupiter.api.Timeout;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvFileSource;
-import org.junit.jupiter.params.provider.CsvSource;
 
 import java.time.Duration;
 import java.util.concurrent.TimeUnit;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTimeout;
 
 @ExtendWith(BankAccountParameterResolver.class)
 public class BankAccountTimedTests {
@@ -22,5 +22,13 @@ public class BankAccountTimedTests {
         assertEquals(amount, account.getBalance());
     }
 
+    @ParameterizedTest
+    @CsvFileSource(resources = "Customer info.csv")
+    void depositsShouldTakeLessThan10msPrecise(String name, int amount,BankAccount account) {
+        assertTimeout(Duration.ofMillis(500), () -> {
+            account.deposit(amount);
+            assertEquals(amount, account.getBalance());
+        });
+    }
 
 }
