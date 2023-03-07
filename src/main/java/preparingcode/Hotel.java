@@ -17,10 +17,10 @@ public class Hotel {
         initializeRooms(normalRooms,List.of("201", "202", "203", "204", "205"));
     }
 
-    public String greetGuest(String name) {
+    public String greetGuest(String name,LocalTime time) {
         if (isKnownName(name)){
             StringBuilder greeting = new StringBuilder();
-            greeting.append("Good ").append(getTimeBasedGreeting(LocalTime.now())).append(" ").append(name).append(". ");
+            greeting.append("Good ").append(getTimeBasedGreeting(time)).append(" ").append(name).append(". ");
             greeting.append("Welcome to our hotel.");
 
             return greeting.toString();
