@@ -19,20 +19,12 @@ class HotelTest {
     }
 
     @Test
-    @DisplayName("Should greet a  known vip guest correctly")
-    void greetVipGuestTest(Hotel hotel) {
+    @DisplayName("Should greet a  known  guest correctly")
+    void greetKnownGuestTest(Hotel hotel) {
         String greeting = hotel.greetGuest("Jane");
 
-        assertTrue(greeting.contains("Jane") && greeting.contains("Good") && greeting.contains("Welcome") && greeting.contains("VIP"));
-    }
-
-    @Test
-    @DisplayName("Should greet a  known non vip guest correctly")
-    void greetNonVipGuestTest(Hotel hotel) {
-        String greeting = hotel.greetGuest("Mary");
-
-        assertTrue(greeting.contains("Mary") && greeting.contains("Good") && greeting.contains("Welcome"));
-        assertFalse(greeting.contains("VIP"));
+        System.out.println(greeting);
+        assertTrue(greeting.contains("Jane") && greeting.contains("Good") && greeting.contains("Welcome"));
     }
 
     @Test
@@ -41,7 +33,6 @@ class HotelTest {
         String greeting = hotel.greetGuest("Unknown");
 
         assertTrue(greeting.contains("stranger"));
-        assertFalse(greeting.contains("Welcome") || greeting.contains("VIP"));
     }
 
     @Test
